@@ -4,113 +4,121 @@ import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.github.florent37.materialviewpager.MaterialViewPager;
+import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.uit.tahitu.hci.smarthospital.fragment.RecyclerViewFragment;
 import com.uit.tahitu.hci.smarthospital.utils.DecodeBitmapTask;
 
-public class DetailsActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    static final String BUNDLE_IMAGE_ID = "BUNDLE_IMAGE_ID";
+public class DetailsActivity extends ActionBarActivity  {
 
-    private ImageView imageView;
-    private DecodeBitmapTask decodeBitmapTask;
+    @BindView(R.id.materialViewPager)
+    MaterialViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        setTitle("");
+        ButterKnife.bind(this);
 
-        final int smallResId = getIntent().getIntExtra(BUNDLE_IMAGE_ID, -1);
-        if (smallResId == -1) {
-            finish();
-            return;
+        final Toolbar toolbar = mViewPager.getToolbar();
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
         }
+//        mViewPager.getHeaderBackgroundContainer().
+        mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
-        imageView = (ImageView)findViewById(R.id.image);
-        imageView.setImageResource(smallResId);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                DetailsActivity.super.onBackPressed();
+            public Fragment getItem(int position) {
+                switch (position % 4) {
+                    //case 0:
+                    //    return RecyclerViewFragment.newInstance();
+                    //case 1:
+                    //    return RecyclerViewFragment.newInstance();
+                    //case 2:
+                    //    return WebViewFragment.newInstance();
+                    default:
+                        return RecyclerViewFragment.newInstance();
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 4;
+            }
+
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                switch (position % 4) {
+                    case 0:
+                        return "GIỚI THIỆU";
+                    case 1:
+                        return "HÌNH ẢNH";
+                    case 2:
+                        return "NHÂN SỰ";
+                    case 3:
+                        return "LIÊN HỆ";
+                }
+                return "";
             }
         });
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            loadFullSizeBitmap(smallResId);
-        } else {
-            getWindow().getSharedElementEnterTransition().addListener(new Transition.TransitionListener() {
-
-                private boolean isClosing = false;
-
-                @Override public void onTransitionPause(Transition transition) {}
-                @Override public void onTransitionResume(Transition transition) {}
-                @Override public void onTransitionCancel(Transition transition) {}
-
-                @Override public void onTransitionStart(Transition transition) {
-                    if (isClosing) {
-                        addCardCorners();
-                    }
+        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
+            @Override
+            public HeaderDesign getHeaderDesign(int page) {
+                switch (page) {
+                    case 0:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.green,
+                                getResources().getDrawable(R.drawable.map_beijing));
+                    case 1:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.blue,
+                                "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
+                    case 2:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.cyan,
+                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                    case 3:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.red,
+                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
                 }
 
-                @Override public void onTransitionEnd(Transition transition) {
-                    if (!isClosing) {
-                        isClosing = true;
+                //execute others actions if needed (ex : modify your header logo)
 
-                        removeCardCorners();
-                        loadFullSizeBitmap(smallResId);
-                    }
+                return null;
+            }
+        });
+
+        mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
+        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
+
+        final View logo = findViewById(R.id.logo_white);
+        if (logo != null) {
+            logo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mViewPager.notifyHeaderChanged();
+                    Toast.makeText(getApplicationContext(), "Yes, the title is clickable", Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        if (isFinishing() && decodeBitmapTask != null) {
-            decodeBitmapTask.cancel(true);
-        }
-    }
-
-    private void addCardCorners() {
-        final CardView cardView = (CardView) findViewById(R.id.card);
-        cardView.setRadius(25f);
-    }
-
-    private void removeCardCorners() {
-        final CardView cardView = (CardView)findViewById(R.id.card);
-        ObjectAnimator.ofFloat(cardView, "radius", 0f).setDuration(50).start();
-    }
-
-    private void loadFullSizeBitmap(int smallResId) {
-        int bigResId;
-        switch (smallResId) {
-            case R.drawable.p1: bigResId = R.drawable.p1_big; break;
-            case R.drawable.p2: bigResId = R.drawable.p2_big; break;
-            case R.drawable.p3: bigResId = R.drawable.p3_big; break;
-            case R.drawable.p4: bigResId = R.drawable.p4_big; break;
-            case R.drawable.p5: bigResId = R.drawable.p5_big; break;
-            default: bigResId = R.drawable.p1_big;
-        }
-
-        final DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-
-        decodeBitmapTask = new DecodeBitmapTask(getResources(), bigResId, metrics.widthPixels, metrics.heightPixels) {
-            @Override
-            protected void onPostExecute(Bitmap bitmap) {
-                super.onPostExecute(bitmap);
-                imageView.setImageBitmap(bitmap);
-            }
-        };
-        decodeBitmapTask.execute();
-    }
-
 }

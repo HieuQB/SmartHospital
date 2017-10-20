@@ -6,9 +6,11 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.StyleRes;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +24,7 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.uit.tahitu.CardSliderLayoutManager;
@@ -29,9 +32,16 @@ import com.uit.tahitu.CardSnapHelper;
 import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenu;
 import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenuItem;
 import com.uit.tahitu.hci.smarthospital.cards.SliderAdapter;
+import com.uit.tahitu.hci.smarthospital.customView.CustomViewTopBar;
 import com.uit.tahitu.hci.smarthospital.utils.DecodeBitmapTask;
 
 import java.util.Random;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
+
+import static com.uit.tahitu.hci.smarthospital.customView.CustomViewTopBar.LEFT_MENU;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -70,15 +80,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DecodeBitmapTask decodeMapBitmapTask;
 
+    @BindView(R.id.top_bar)
+    CustomViewTopBar topBar;
+
+
+    @BindView(R.id.main_swipe)
+    WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.bind(this);
+
+        topBar.setTextTitle("List Hospital");
+        topBar.setImageViewLeft(CustomViewTopBar.LEFT_MENU);
+        topBar.setImageViewRight(CustomViewTopBar.DRAWABLE_FILTER);
+        
+        topBar.setOnLeftRightClickListener(new CustomViewTopBar.OnLeftRightClickListener() {
+            @Override
+            public void onLeftClicked() {
+                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
+            }
+
+            @Override
+            public void onRightClicked() {
+                Toast.makeText(MainActivity.this, "Open Filter", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         setUpMenu();
         initRecyclerView();
         initCountryText();
         initSwitchers();
         initGreenDot();
+
+        mWaveSwipeRefreshLayout.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
+            @Override public void onRefresh() {
+                // Do work to refresh the list here.
+                mWaveSwipeRefreshLayout.setRefreshing(false);
+                new Task().execute();
+            }
+        });
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+    private class Task extends AsyncTask<Void, Void, String[]> {
+        @Override
+        protected String[] doInBackground(Void... params) {
+            return new String[0];
+        }
+        @Override protected void onPostExecute(String[] result) {
+            // Call setRefreshing(false) when the list has been refreshed.
+            mWaveSwipeRefreshLayout.setRefreshing(false);
+            super.onPostExecute(result);
+        }
     }
 
     private void setUpMenu() {
@@ -111,18 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
         resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_LEFT);
 
-//        findViewById(R.id.title_bar_left_menu).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT);
-//            }
-//        });
-        findViewById(R.id.title_bar_left_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-        });
     }
 
     private void initRecyclerView() {
@@ -338,6 +384,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == itemHome){
         }else if (view == itemProfile){
+            Intent intent = new Intent(this,TimeLineDoctorActivity.class);
+            startActivity(intent);
+
         }else if (view == itemCalendar){
         }else if (view == itemSettings){
         }
@@ -405,8 +454,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             final int clickedPosition = recyclerView.getChildAdapterPosition(view);
             if (clickedPosition == activeCardPosition) {
                 final Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-                intent.putExtra(DetailsActivity.BUNDLE_IMAGE_ID, pics[activeCardPosition % pics.length]);
-
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                     startActivity(intent);
                 } else {
