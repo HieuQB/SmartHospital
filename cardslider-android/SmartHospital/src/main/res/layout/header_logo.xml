@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:text="Bệnh viện đa khoa Thủ Đức"
     android:id="@+id/logo_white"
-    android:layout_width="200dp"
-    android:layout_height="@dimen/materialviewpager_logoHeight"
-    android:src="@drawable/logo_white" />
+    android:textSize="20sp"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:background="@color/transparent"
+    android:textColor="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>

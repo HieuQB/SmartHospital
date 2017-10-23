@@ -13,6 +13,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.StyleRes;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -39,9 +40,6 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
-
-import static com.uit.tahitu.hci.smarthospital.customView.CustomViewTopBar.LEFT_MENU;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @BindView(R.id.main_swipe)
-    WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
+    SwipeRefreshLayout mWaveSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,27 +114,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initSwitchers();
         initGreenDot();
 
-        mWaveSwipeRefreshLayout.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
-            @Override public void onRefresh() {
-                // Do work to refresh the list here.
-                mWaveSwipeRefreshLayout.setRefreshing(false);
-                new Task().execute();
-            }
-        });
+       mWaveSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+           @Override
+           public void onRefresh() {
+               mWaveSwipeRefreshLayout.setRefreshing(false);
+           }
+       });
 
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
-    private class Task extends AsyncTask<Void, Void, String[]> {
-        @Override
-        protected String[] doInBackground(Void... params) {
-            return new String[0];
-        }
-        @Override protected void onPostExecute(String[] result) {
-            // Call setRefreshing(false) when the list has been refreshed.
-            mWaveSwipeRefreshLayout.setRefreshing(false);
-            super.onPostExecute(result);
-        }
     }
 
     private void setUpMenu() {
