@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:text="Bệnh viện đa khoa Thủ Đức"
+    android:text="Bệnh viện Từ Dũ"
     android:id="@+id/logo_white"
     android:textSize="20sp"
     android:gravity="center"

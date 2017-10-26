@@ -1,5 +1,7 @@
 package com.uit.tahitu.hci.smarthospital.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.uit.tahitu.hci.smarthospital.R;
+import com.uit.tahitu.hci.smarthospital.fragment.adapter.TestRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +22,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by florentchampigny on 24/04/15.
- */
+
 public class RecyclerViewFragment extends Fragment {
 
     private static final boolean GRID_LAYOUT = false;
-    private static final int ITEM_COUNT = 100;
+    private static final int ITEM_COUNT = 2;
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -62,6 +63,13 @@ public class RecyclerViewFragment extends Fragment {
 
         //Use this now
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        mRecyclerView.setAdapter(new TestRecyclerViewAdapter(items));
+        mRecyclerView.setAdapter(new TestRecyclerViewAdapter(items, new TestRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick() {
+                String phone = "028 5404 2829";
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                startActivity(intent);
+            }
+        }));
     }
 }

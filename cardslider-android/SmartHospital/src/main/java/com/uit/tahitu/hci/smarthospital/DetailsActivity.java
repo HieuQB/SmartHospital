@@ -1,26 +1,18 @@
 package com.uit.tahitu.hci.smarthospital;
 
-import android.animation.ObjectAnimator;
-import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.transition.Transition;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.uit.tahitu.hci.smarthospital.fragment.ListImageFragment;
 import com.uit.tahitu.hci.smarthospital.fragment.RecyclerViewFragment;
-import com.uit.tahitu.hci.smarthospital.fragment.TimeLineHospital;
-import com.uit.tahitu.hci.smarthospital.utils.DecodeBitmapTask;
+import com.uit.tahitu.hci.smarthospital.fragment.TimeLineHospitalFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,12 +47,12 @@ public class DetailsActivity extends ActionBarActivity  {
                 switch (position % 4) {
                     //case 0:
                     //    return RecyclerViewFragment.newInstance();
-//                    case 1:
-//                        return TimeLineHospital.newInstance();
+                    case 1:
+                        return ListImageFragment.newInstance();
                     //case 2:
                     //    return WebViewFragment.newInstance();
                     case 3:
-                        return TimeLineHospital.newInstance();
+                        return TimeLineHospitalFragment.newInstance();
                     default:
                         return RecyclerViewFragment.newInstance();
                 }
@@ -82,7 +74,7 @@ public class DetailsActivity extends ActionBarActivity  {
                     case 2:
                         return "NHÂN SỰ";
                     case 3:
-                        return "TIME LINE";
+                        return "TIMELINE";
                 }
                 return "";
             }
@@ -96,22 +88,22 @@ public class DetailsActivity extends ActionBarActivity  {
                         getWindow().setStatusBarColor(getResources().getColor(R.color.green));
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.green,
-                                getResources().getDrawable(R.drawable.map_beijing));
+                                getResources().getDrawable(R.drawable.bvtudu_toancanh2));
                     case 1:
                         getWindow().setStatusBarColor(getResources().getColor(R.color.blue));
-                        return HeaderDesign.fromColorResAndUrl(
+                        return HeaderDesign.fromColorResAndDrawable(
                                 R.color.blue,
-                                "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
+                                getResources().getDrawable(R.drawable.bvtudu_gioithieu));
                     case 2:
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.lime));
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.lime,
-                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.purple));
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.purple,
+                                getResources().getDrawable(R.drawable.bvtudu_nhanvien));
                     case 3:
                         getWindow().setStatusBarColor(getResources().getColor(R.color.red));
-                        return HeaderDesign.fromColorResAndUrl(
+                        return HeaderDesign.fromColorResAndDrawable(
                                 R.color.red,
-                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                                getResources().getDrawable(R.drawable.bvtudu_logo));
                     default:
                         getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
                 }

@@ -25,13 +25,14 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:layout_height="300dp">
 
-            <!--<ImageView-->
-                <!--app:layout_collapseMode="pin"-->
-                <!--android:scaleType="centerCrop"-->
-                <!--android:id="@+id/imageView"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/hieu" />-->
+            <com.gjiazhe.panoramaimageview.PanoramaImageView
+                android:id="@+id/panorama_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/hieu"
+                app:piv_enablePanoramaMode="true"
+                app:piv_show_scrollbar="true"
+                app:piv_invertScrollDirection="false" />
 
             <LinearLayout
                 app:layout_collapseMode="pin"

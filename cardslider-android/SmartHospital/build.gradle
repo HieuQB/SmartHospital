@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.ramotion.cardslider.examples.simple"
         minSdkVersion 21
@@ -48,4 +48,8 @@ dependencies {
     // circle image view
     compile "de.hdodenhof:circleimageview:2.0.0"
 
+    compile 'com.gjiazhe:PanoramaImageView:1.0'
+
+    // sticky header view
+    compile "org.zakariya.stickyheaders:stickyheaders:0.7.6"
 }

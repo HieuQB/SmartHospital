@@ -82,4 +82,9 @@
         <item name="color">@color/drawerArrowColor</item>
     </style>
 
+    <declare-styleable name="StickyScrollView">
+        <attr name="shadowHeight" format="dimension" />
+        <attr name="shadowDrawable" format="reference" />
+    </declare-styleable>
+
 </resources>
