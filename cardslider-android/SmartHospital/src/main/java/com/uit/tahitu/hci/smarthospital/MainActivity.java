@@ -3,9 +3,11 @@ package com.uit.tahitu.hci.smarthospital;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.ActivityOptions;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,8 +36,10 @@ import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenu;
 import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenuItem;
 import com.uit.tahitu.hci.smarthospital.cards.SliderAdapter;
 import com.uit.tahitu.hci.smarthospital.customView.CustomViewTopBar;
+import com.uit.tahitu.hci.smarthospital.customView.DialogPositiveNegative;
 import com.uit.tahitu.hci.smarthospital.utils.DecodeBitmapTask;
 
+import java.util.Locale;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -45,29 +49,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ResideMenu resideMenu;
     private ResideMenuItem itemHome;
-    private ResideMenuItem itemProfile;
+    private ResideMenuItem itemLogin;
+    private ResideMenuItem itemShare;
     private ResideMenuItem itemCalendar;
     private ResideMenuItem itemSettings;
 
+    @BindView(R.id.tvLienHe)
+    TextView tvLienHe;
+
     private final int[][] dotCoords = new int[5][2];
-    private final int[] pics = {R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p4, R.drawable.p5};
-    private final int[] maps = {R.drawable.map_paris, R.drawable.map_seoul, R.drawable.map_london, R.drawable.map_beijing, R.drawable.map_greece};
+    private final int[] pics = {R.drawable.p5, R.drawable.bvtudu_toancanh2, R.drawable.p3, R.drawable.p4, R.drawable.p1, R.drawable.p6};
+    private final int[] maps = {R.drawable.map1, R.drawable.map2, R.drawable.map3, R.drawable.map4, R.drawable.map5,R.drawable.map6};
     private final int[] descriptions = {R.string.text1, R.string.text2, R.string.text3, R.string.text4, R.string.text5};
-    private final String[] countries = {"THỦ ĐỨC", "QUẬN 1", "QUẬN 9", "QUẬN 2", "TÂN BÌNH"};
-    private final String[] places = {"Bênh viện đa khoa Thủ Đức", "Bệnh Viện Đa khoa Hoàn Hảo", "Tower Bridge", "Temple of Heaven", "Aegeana Sea"};
+    private final String[] countries = {"Bệnh Viện Đa Khoa Quốc Tế Vinmec", "Bệnh viện Phụ Sản Từ Dũ", "Phòng Khám Đa Khoa Quốc Tế Sài Gòn", "Bệnh viện Nhiệt Đới", "Bệnh viện Quận Thủ Đức", "Bệnh viện Đa Khoa Đồng Nai"};
+    private final String[] places = {"29 Phú Châu, Tam Phú, Hồ Chí Minh, Linh Trung, Thủ Đức", "284 Cống Quỳnh, Phạm Ngũ Lão, Quận 1", "6 Trịnh Văn Cấn, Cầu Ông Lãnh, Quận 1", "764 Võ Văn Kiệt, phường 1, TP Hồ Chí Minh", "1B Đường Hoàng Hữu Nam, Long Thạnh Mỹ, Quận 9"};
     private final String[] temperatures = {"15 KM", "14.5 KM", "20 KM", "6 KM", "2.7 KM"};
-    private final String[] times = {"Aug 1 - Dec 15    7:00-18:00", "Sep 5 - Nov 10    8:00-16:00", "Mar 8 - May 21    7:00-18:00"};
+    private final String[] times = {"Thứ 2 - Thứ 7    7:30-16:30", "Thứ 2 - Chủ Nhật    Mở cửa cả ngày", "Thứ 2 - Thứ 6    7:30-22:00"};
 
     private final SliderAdapter sliderAdapter = new SliderAdapter(pics, 20, new OnCardClickListener());
 
     private CardSliderLayoutManager layoutManger;
     private RecyclerView recyclerView;
-    private ImageSwitcher mapSwitcher;
     private TextSwitcher temperatureSwitcher;
     private TextSwitcher placeSwitcher;
     private TextSwitcher clockSwitcher;
     private TextSwitcher descriptionsSwitcher;
-    private View greenDot;
 
     private TextView country1TextView;
     private TextView country2TextView;
@@ -80,10 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.top_bar)
     CustomViewTopBar topBar;
+    private int REQUEST_LOGIN = 27;
 
-
-    @BindView(R.id.main_swipe)
-    SwipeRefreshLayout mWaveSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         topBar.setTextTitle("List Hospital");
         topBar.setImageViewLeft(CustomViewTopBar.LEFT_MENU);
-        topBar.setImageViewRight(CustomViewTopBar.DRAWABLE_FILTER);
-        
+        topBar.setImageViewRight(CustomViewTopBar.DRAWABLE_FILTER, CustomViewTopBar.DRAWABLE_MY_RECRUITMENT);
+        topBar.setImageViewRightVisible(View.VISIBLE,View.GONE);
         topBar.setOnLeftRightClickListener(new CustomViewTopBar.OnLeftRightClickListener() {
             @Override
             public void onLeftClicked() {
@@ -112,15 +116,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initRecyclerView();
         initCountryText();
         initSwitchers();
-        initGreenDot();
-
-       mWaveSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-           @Override
-           public void onRefresh() {
-               mWaveSwipeRefreshLayout.setRefreshing(false);
-           }
-       });
-
+        tvLienHe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", 10.8268560, 106.8350591, "Bệnh viện Từ Dũ");
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                intent.setPackage("com.google.android.apps.maps");
+                try
+                {
+                    startActivity(intent);
+                }
+                catch(ActivityNotFoundException ex)
+                {
+                    try
+                    {
+                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                        startActivity(unrestrictedIntent);
+                    }
+                    catch(ActivityNotFoundException innerEx)
+                    {
+                        Toast.makeText(MainActivity.this, "Please install a maps application", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
     }
 
     private void setUpMenu() {
@@ -134,20 +153,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resideMenu.setScaleValue(0.6f);
 
         // create menu items;
-        itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Home");
-        itemProfile  = new ResideMenuItem(this, R.drawable.icon_profile,  "Profile");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Feedback");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
-
+        itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Trang Chủ");
+        itemLogin  = new ResideMenuItem(this, R.drawable.icon_profile,  "Đăng Nhập");
+        itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Tác Giả");
+        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Cài Đặt");
+        itemShare = new ResideMenuItem(this, R.drawable.ic_share_black_24dp, "Chia Sẻ");
         itemHome.setOnClickListener(this);
-        itemProfile.setOnClickListener(this);
+        itemLogin.setOnClickListener(this);
         itemCalendar.setOnClickListener(this);
         itemSettings.setOnClickListener(this);
+        itemShare.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_RIGHT);
-        resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_RIGHT);
+        resideMenu.addMenuItem(itemLogin, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemShare, ResideMenu.DIRECTION_LEFT);
 
 //         You can disable a direction by setting ->
         resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
@@ -210,12 +231,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         descriptionsSwitcher.setOutAnimation(this, android.R.anim.fade_out);
         descriptionsSwitcher.setFactory(new TextViewFactory(R.style.DescriptionTextView, false));
         descriptionsSwitcher.setCurrentText(getString(descriptions[0]));
-
-        mapSwitcher = (ImageSwitcher) findViewById(R.id.ts_map);
-        mapSwitcher.setInAnimation(this, R.anim.fade_in);
-        mapSwitcher.setOutAnimation(this, R.anim.fade_out);
-        mapSwitcher.setFactory(new ImageViewFactory());
-        mapSwitcher.setImageResource(maps[0]);
     }
 
     private void initCountryText() {
@@ -229,36 +244,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         country2TextView.setX(countryOffset2);
         country1TextView.setText(countries[0]);
         country2TextView.setAlpha(0f);
-
+        country1TextView.setSelected(true);
+        country2TextView.setSelected(true);
         country1TextView.setTypeface(Typeface.createFromAsset(getAssets(), "open-sans-extrabold.ttf"));
         country2TextView.setTypeface(Typeface.createFromAsset(getAssets(), "open-sans-extrabold.ttf"));
-    }
-
-    private void initGreenDot() {
-        mapSwitcher.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                mapSwitcher.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
-                final int viewLeft = mapSwitcher.getLeft();
-                final int viewTop = mapSwitcher.getTop() + mapSwitcher.getHeight() / 3;
-
-                final int border = 100;
-                final int xRange = mapSwitcher.getWidth() - border * 2;
-                final int yRange = (mapSwitcher.getHeight() / 3) * 2 - border * 2;
-
-                final Random rnd = new Random();
-
-                for (int i = 0, cnt = dotCoords.length; i < cnt; i++) {
-                    dotCoords[i][0] = viewLeft + border + rnd.nextInt(xRange);
-                    dotCoords[i][1] = viewTop + border + rnd.nextInt(yRange);
-                }
-
-                greenDot = findViewById(R.id.green_dot);
-                greenDot.setX(dotCoords[0][0]);
-                greenDot.setY(dotCoords[0][1]);
-            }
-        });
     }
 
     private void setCountryText(String text, boolean left2right) {
@@ -332,47 +321,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         descriptionsSwitcher.setText(getString(descriptions[pos % descriptions.length]));
 
-        showMap(maps[pos % maps.length]);
-
-        ViewCompat.animate(greenDot)
-                .translationX(dotCoords[pos % dotCoords.length][0])
-                .translationY(dotCoords[pos % dotCoords.length][1])
-                .start();
-
         currentPosition = pos;
     }
-
-    private void showMap(@DrawableRes int resId) {
-        if (decodeMapBitmapTask != null) {
-            decodeMapBitmapTask.cancel(true);
-        }
-
-        decodeMapBitmapTask = new DecodeBitmapTask(getResources(), resId, mapSwitcher.getWidth(), mapSwitcher.getHeight()) {
-            @Override
-            protected void onPostExecute(Bitmap bitmap) {
-                super.onPostExecute(bitmap);
-                ((ImageView)mapSwitcher.getNextView()).setImageBitmap(bitmap);
-                mapSwitcher.showNext();
-            }
-        };
-
-        decodeMapBitmapTask.execute();
-    }
-
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        return resideMenu.dispatchTouchEvent(ev);
-//    }
 
     @Override
     public void onClick(View view) {
         if (view == itemHome){
-        }else if (view == itemProfile){
-            Intent intent = new Intent(this,TimeLineDoctorActivity.class);
-            startActivity(intent);
+        }else if (view == itemLogin){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+
+            startActivityForResult(intent,REQUEST_LOGIN);
 
         }else if (view == itemCalendar){
+            Intent intent = new Intent(this,TimeLineDoctorActivity.class);
+            startActivity(intent);
         }else if (view == itemSettings){
+
+        } else if(view == itemShare){
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Xài cái ứng dụng Smart Hospital đi bạn eei ! Đảm bảo xài là ghiền! Quẹo lựa qoẹo lựa bạn eei :D  \n https://www.uit.edu.vn/");
+            sendIntent.setType("text/plain");
+            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
         }
 
         resideMenu.closeMenu();
@@ -454,5 +424,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            if(requestCode == REQUEST_LOGIN ){
+                topBar.setImageViewRightVisible(View.VISIBLE,View.VISIBLE);
+                itemLogin.setTitle("Đăng Xuất");
+                itemLogin.setIcon(R.drawable.ic_user_sign_out);
+                itemLogin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DialogPositiveNegative dialog = new DialogPositiveNegative(MainActivity.this, "Smart Hospital", "Bạn có chắc chắn muốn đăng xuất?", "OK","Cancel");
+                        dialog.show();
+                        dialog.setOnIPositiveNegativeDialogListener(new DialogPositiveNegative.IPositiveNegativeDialogListener() {
+                            @Override
+                            public void onIPositiveNegativeDialogAnswerPositive(DialogPositiveNegative dialog) {
+                                topBar.setImageViewRightVisible(View.VISIBLE,View.GONE);
+                                itemLogin.setTitle("Đăng Nhập");
+                                itemLogin.setIcon(R.drawable.icon_profile);
+                                dialog.dismiss();
+                                resideMenu.closeMenu();
+                                itemLogin.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 
+                                        startActivityForResult(intent,REQUEST_LOGIN);
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onIPositiveNegativeDialogAnswerNegative(DialogPositiveNegative dialog) {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    }
 }

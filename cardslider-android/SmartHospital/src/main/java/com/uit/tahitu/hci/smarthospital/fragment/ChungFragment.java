@@ -1,6 +1,8 @@
 package com.uit.tahitu.hci.smarthospital.fragment;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,26 +12,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.uit.tahitu.hci.smarthospital.R;
-import com.uit.tahitu.hci.smarthospital.ViewImageActivity;
-import com.uit.tahitu.hci.smarthospital.fragment.adapter.ListImageAdapter;
-import com.uit.tahitu.hci.smarthospital.fragment.adapter.TestRecyclerViewAdapter;
+import com.uit.tahitu.hci.smarthospital.fragment.adapter.ChungAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.uit.tahitu.hci.smarthospital.ViewImageActivity.BUNDLE_IMAGE_ID;
 
-/**
- * Created by HieuMinh on 10/23/2017.
- */
-
-public class ListImageFragment extends Fragment {
+public class ChungFragment extends Fragment {
 
     private static final boolean GRID_LAYOUT = false;
     private static final int ITEM_COUNT = 2;
@@ -37,8 +34,8 @@ public class ListImageFragment extends Fragment {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    public static ListImageFragment newInstance() {
-        return new ListImageFragment();
+    public static ChungFragment newInstance() {
+        return new ChungFragment();
     }
 
     @Override
@@ -69,11 +66,11 @@ public class ListImageFragment extends Fragment {
 
         //Use this now
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        mRecyclerView.setAdapter(new ListImageAdapter(items, new ListImageAdapter.OnItemClickListener() {
+        mRecyclerView.setAdapter(new ChungAdapter(items, new ChungAdapter.OnItemClickListener() {
             @Override
-            public void onItemSelect(int position) {
-                Intent intent = new Intent(getActivity(),ViewImageActivity.class);
-                intent.putExtra(BUNDLE_IMAGE_ID,position);
+            public void onItemClick() {
+                String phone = "028 5404 2829";
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
                 startActivity(intent);
             }
         }));

@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
  * Created by HieuMinh on 10/23/2017.
  */
 
-public class ListImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HinhAnhAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Object> contents;
 
@@ -30,7 +30,7 @@ public class ListImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         void onItemSelect(int position);
     }
 
-    public ListImageAdapter(List<Object> contents,OnItemClickListener mCallBack) {
+    public HinhAnhAdapter(List<Object> contents, OnItemClickListener mCallBack) {
         this.contents = contents;
         this.mCallBack = mCallBack;
     }

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uit.tahitu.hci.smarthospital">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
@@ -28,7 +28,11 @@
             android:screenOrientation="portrait" />
         <activity android:name=".TimeLineDoctorActivity"></activity>
         <activity android:name=".ProfileHospitalActivity"></activity>
-        <activity android:name=".ViewImageActivity"/>
-    </application>
+        <activity android:name=".ViewImageActivity" />
+        <activity android:name=".LoginActivity">
 
+        </activity>
+
+        <activity android:name=".ForgotPasswordActivity"></activity>
+    </application>
 </manifest>

@@ -16,18 +16,18 @@ import butterknife.ButterKnife;
 /**
  * Created by florentchampigny on 24/04/15.
  */
-public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Object> contents;
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
-    private TestRecyclerViewAdapter.OnItemClickListener mCallBack;
+    private ChungAdapter.OnItemClickListener mCallBack;
 
     public interface OnItemClickListener {
         void onItemClick();
     }
-    public TestRecyclerViewAdapter(List<Object> contents,OnItemClickListener mCallBack) {
+    public ChungAdapter(List<Object> contents, OnItemClickListener mCallBack) {
         this.contents = contents;
         this.mCallBack = mCallBack;
     }

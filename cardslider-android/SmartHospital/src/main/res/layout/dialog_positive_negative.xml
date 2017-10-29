@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4D000000">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/small_8dp"
+        card_view:cardCornerRadius="@dimen/small_8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color">
+
+                <TextView
+                    android:id="@+id/dialog_positive_negative_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:padding="@dimen/small_8dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/dialog_positive_negative_message"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/small_12dp"
+                    android:layout_marginEnd="@dimen/small_6dp"
+                    android:layout_marginStart="@dimen/small_6dp"
+                    android:layout_marginTop="@dimen/small_12dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/dialog_positive_negative_answer_negative"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/grey"
+                    android:maxLines="1"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:paddingBottom="@dimen/small_10dp"
+                    android:paddingEnd="@dimen/large"
+                    android:paddingLeft="@dimen/large"
+                    android:paddingRight="@dimen/large"
+                    android:paddingStart="@dimen/large"
+                    android:paddingTop="@dimen/small_10dp"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/semi_black"
+                    android:textSize="16sp"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"/>
+
+                <Button
+                    android:id="@+id/dialog_positive_negative_answer_positive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/grey"
+                    android:maxLines="1"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:paddingBottom="@dimen/small_10dp"
+                    android:paddingEnd="@dimen/large"
+                    android:paddingLeft="@dimen/large"
+                    android:paddingRight="@dimen/large"
+                    android:paddingStart="@dimen/large"
+                    android:paddingTop="@dimen/small_10dp"
+                    android:text="@android:string/ok"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_color"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

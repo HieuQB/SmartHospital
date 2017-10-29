@@ -1,20 +1,14 @@
 package com.uit.tahitu.hci.smarthospital.fragment.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.uit.tahitu.hci.smarthospital.R;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by florentchampigny on 24/04/15.
@@ -24,7 +18,7 @@ public class TestListViewAdapter extends ArrayAdapter<Object> {
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
 
-    private ListImageAdapter.OnItemClickListener mCallBack;
+    private HinhAnhAdapter.OnItemClickListener mCallBack;
 
     public interface OnItemClickListener {
         void onItemSelect(int position);

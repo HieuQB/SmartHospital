@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="7dp"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:tag="sticky"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:elevation="7dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/bg_white_stroke_blue_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:orientation="vertical"
+        android:paddingStart="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/distance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Bảng giá khám Dịch vụ và khám theo yêu cầu"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/distance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Người cung cấp : Admin"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/distance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Ngày cập nhật : 29/10/2017"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.uit.tahitu.hci.smarthospital.customView.StickyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:elevation="7dp"
+                    android:tag="sticky"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="15dp"
+                    android:background="@color/app_color"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="Khám bệnh"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="35dp" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:text="Giá thành"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Khám bệnh chuyên khoa"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="39.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Hội chấn để xác định ca bệnh khó"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="200.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:elevation="7dp"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="15dp"
+                    android:background="@color/app_color"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="Siêu Âm"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="35dp" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:text="Giá thành"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Siêu âm"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="49.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Siêu âm đầu dò âm đạo, trực tràng"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="176.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Theo dõi tim thai và cơn co tử cung"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="70.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="SA Doppler màu mạch máu thai nhi"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="79.500 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:elevation="7dp"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="15dp"
+                    android:background="@color/app_color"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="Chụp X-Quang số hóa"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="35dp" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:text="Giá thành"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp X-Quang số hóa 1 phim"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="69.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp X-Quang số hóa 2 phim"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="94.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp X-Quang số hóa 3 phim"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="114.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp tử cung vòi trứng bằng số hóa"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="396.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp hệ tiết niệu có tiêm thuốc cản quang UIV số hóa"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="594.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp X-Quang vú định vị kim dây chưa bao gồm kim định vị"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="371.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:elevation="7dp"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="15dp"
+                    android:background="@color/app_color"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="Chụp cắt lớp vi tính, chụp mạch, cộng hưởng từ"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:text="Giá thành"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Chụp cộng hưởng từ MRI không có thuốc cản quang"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="1.754.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Chụp cộng hưởng từ MRI có thuốc cản quang"
+                        android:textColor="#292929" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="2.336.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:elevation="7dp"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="15dp"
+                    android:background="@color/app_color"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="Xét nghiệm huyết học"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="35dp" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:text="Giá thành"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Tổng phân tích tế bào máu ngoại vi"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="103.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Máu lắng (bằng phương pháp thủ công)"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="25.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="KST soát rét Ag (Test nhanh)"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="230.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Đếm tế bào/ dịch"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="40.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="PT, TQ (bằng máy bán tự động, tự động)"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="61.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="APTT (TCK)"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="67.000 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Nghiệm pháp Coombs GT (Scangel) "
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="80.500 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="Nghiệm pháp Coombs TT (Scangel)"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textColor="#292929"
+                        android:gravity="center_vertical"
+                        android:text="78.400 VNĐ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.uit.tahitu.hci.smarthospital.customView.StickyScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

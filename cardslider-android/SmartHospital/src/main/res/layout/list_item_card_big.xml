@@ -87,7 +87,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tai mũi họng, nội ngoại thần kinh, mắt và phụ sản"
+                    android:text="Bệnh viện Từ Dũ là một bệnh viện phụ sản ở thành phố Hồ Chí Minh, Việt Nam. Với gần một thế kỷ làm việc và phát triển, bệnh viện Từ Dũ là nơi ra đời của rất nhiều thế hệ em bé sinh ra ở tại thành phố Hồ Chí Minh. Bệnh viện Từ Dũ cũng là một trong bệnh viện hàng đầu ở Việt Nam trong vấn đề về hiếm muộn và thụ tinh nhân tạo.Hiện nay, Ths. Bs. Lê Quang Thanh là Giám đốc Bệnh viện Từ Dũ"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
@@ -112,6 +112,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Sức chứa : Khoảng 1000 m²"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/link" />
+
+                <TextView
+                android:gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Website : "
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+                <TextView
+                    android:textColorLink="@color/blue"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:linksClickable="true"
+                    android:text="http://tudu.com.vn/"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 

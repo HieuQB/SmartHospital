@@ -1,7 +1,6 @@
 package com.uit.tahitu.hci.smarthospital.fragment;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,8 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.uit.tahitu.hci.smarthospital.R;
-import com.uit.tahitu.hci.smarthospital.fragment.adapter.TestRecyclerViewAdapter;
+import com.uit.tahitu.hci.smarthospital.ViewImageActivity;
+import com.uit.tahitu.hci.smarthospital.fragment.adapter.HinhAnhAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +22,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.uit.tahitu.hci.smarthospital.ViewImageActivity.BUNDLE_IMAGE_ID;
 
-public class RecyclerViewFragment extends Fragment {
+/**
+ * Created by HieuMinh on 10/23/2017.
+ */
+
+public class HinhAnhFragment extends Fragment {
 
     private static final boolean GRID_LAYOUT = false;
     private static final int ITEM_COUNT = 2;
@@ -31,8 +36,8 @@ public class RecyclerViewFragment extends Fragment {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    public static RecyclerViewFragment newInstance() {
-        return new RecyclerViewFragment();
+    public static HinhAnhFragment newInstance() {
+        return new HinhAnhFragment();
     }
 
     @Override
@@ -63,11 +68,11 @@ public class RecyclerViewFragment extends Fragment {
 
         //Use this now
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        mRecyclerView.setAdapter(new TestRecyclerViewAdapter(items, new TestRecyclerViewAdapter.OnItemClickListener() {
+        mRecyclerView.setAdapter(new HinhAnhAdapter(items, new HinhAnhAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick() {
-                String phone = "028 5404 2829";
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+            public void onItemSelect(int position) {
+                Intent intent = new Intent(getActivity(),ViewImageActivity.class);
+                intent.putExtra(BUNDLE_IMAGE_ID,position);
                 startActivity(intent);
             }
         }));

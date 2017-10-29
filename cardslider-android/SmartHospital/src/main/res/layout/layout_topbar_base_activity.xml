@@ -39,6 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/ln_left" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tv_screen_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

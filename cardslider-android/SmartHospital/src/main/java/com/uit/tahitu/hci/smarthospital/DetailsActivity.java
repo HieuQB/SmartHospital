@@ -1,23 +1,29 @@
 package com.uit.tahitu.hci.smarthospital;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
-import com.uit.tahitu.hci.smarthospital.fragment.ListImageFragment;
-import com.uit.tahitu.hci.smarthospital.fragment.RecyclerViewFragment;
-import com.uit.tahitu.hci.smarthospital.fragment.TimeLineHospitalFragment;
+import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenu;
+import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenuItem;
+import com.uit.tahitu.hci.smarthospital.fragment.BangGiaFragment;
+import com.uit.tahitu.hci.smarthospital.fragment.ChungFragment;
+import com.uit.tahitu.hci.smarthospital.fragment.HinhAnhFragment;
+import com.uit.tahitu.hci.smarthospital.fragment.TimeLineFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailsActivity extends ActionBarActivity  {
+public class DetailsActivity extends ActionBarActivity {
+
 
     @BindView(R.id.materialViewPager)
     MaterialViewPager mViewPager;
@@ -28,7 +34,6 @@ public class DetailsActivity extends ActionBarActivity  {
         setContentView(R.layout.activity_details);
         setTitle("");
         ButterKnife.bind(this);
-
         final Toolbar toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -45,16 +50,16 @@ public class DetailsActivity extends ActionBarActivity  {
             @Override
             public Fragment getItem(int position) {
                 switch (position % 4) {
-                    //case 0:
-                    //    return RecyclerViewFragment.newInstance();
+//                    case 0:
+//                        return ChungFragment.newInstance();
                     case 1:
-                        return ListImageFragment.newInstance();
-                    //case 2:
-                    //    return WebViewFragment.newInstance();
+                        return HinhAnhFragment.newInstance();
+                    case 2:
+                        return BangGiaFragment.newInstance();
                     case 3:
-                        return TimeLineHospitalFragment.newInstance();
+                        return TimeLineFragment.newInstance();
                     default:
-                        return RecyclerViewFragment.newInstance();
+                        return ChungFragment.newInstance();
                 }
             }
 
@@ -72,7 +77,7 @@ public class DetailsActivity extends ActionBarActivity  {
                     case 1:
                         return "HÌNH ẢNH";
                     case 2:
-                        return "NHÂN SỰ";
+                        return "BẢNG GIÁ";
                     case 3:
                         return "TIMELINE";
                 }
@@ -85,25 +90,25 @@ public class DetailsActivity extends ActionBarActivity  {
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.green));
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.blue));
                         return HeaderDesign.fromColorResAndDrawable(
-                                R.color.green,
+                                R.color.blue,
                                 getResources().getDrawable(R.drawable.bvtudu_toancanh2));
                     case 1:
                         getWindow().setStatusBarColor(getResources().getColor(R.color.blue));
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.blue,
-                                getResources().getDrawable(R.drawable.bvtudu_gioithieu));
+                                getResources().getDrawable(R.drawable.bvtudu_logo));
                     case 2:
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.purple));
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.blue));
                         return HeaderDesign.fromColorResAndDrawable(
-                                R.color.purple,
+                                R.color.blue,
                                 getResources().getDrawable(R.drawable.bvtudu_nhanvien));
                     case 3:
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.red));
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.blue));
                         return HeaderDesign.fromColorResAndDrawable(
-                                R.color.red,
-                                getResources().getDrawable(R.drawable.bvtudu_logo));
+                                R.color.blue,
+                                getResources().getDrawable(R.drawable.bvtudu_gioithieu));
                     default:
                         getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
                 }

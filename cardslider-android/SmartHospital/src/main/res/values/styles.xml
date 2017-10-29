@@ -6,7 +6,26 @@
         <!--<item name="colorAccent">@color/colorAccent</item>-->
         <!--<item name="android:windowBackground">@android:color/white</item>-->
     <!--</style>-->
-
+    <style name="FullscreenDialog" parent="android:Theme.Dialog">
+        <item name="android:colorAccent" tools:ignore="NewApi">@color/app_color</item>
+        <item name="android:colorPrimaryDark" tools:ignore="NewApi">@color/app_color</item>
+        <item name="android:colorControlNormal" tools:ignore="NewApi">@color/grey_divider</item>
+        <item name="android:colorControlActivated" tools:ignore="NewApi">@color/app_color</item>
+        <item name="android:colorControlHighlight" tools:ignore="NewApi">@color/app_color</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">#009df7</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:colorForeground">@color/md_grey_600</item>
+        <item name="android:windowAnimationStyle">@style/FullscreenDialogAnimation</item>
+    </style>
+    <style name="FullscreenDialogAnimation">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
     <style name="TemperatureTextView">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/temperature_text</item>
@@ -14,16 +33,19 @@
     </style>
 
     <style name="PlaceTextView">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="ClockTextView">
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">15sp</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="DescriptionTextView">
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">15sp</item>
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
@@ -87,4 +109,6 @@
         <attr name="shadowDrawable" format="reference" />
     </declare-styleable>
 
+    <color name="grey_divider">#CFCFCF</color>
+    <color name="md_grey_600">#757575</color>
 </resources>
