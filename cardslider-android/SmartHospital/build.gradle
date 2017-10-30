@@ -23,6 +23,7 @@ repositories {
     maven {
         url "https://jitpack.io"
     }
+    google()
 }
 
 dependencies {
@@ -52,4 +53,8 @@ dependencies {
 
     // sticky header view
     compile "org.zakariya.stickyheaders:stickyheaders:0.7.6"
+
+    //glide
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
 }

@@ -68,7 +68,7 @@ public class HinhAnhFragment extends Fragment {
 
         //Use this now
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        mRecyclerView.setAdapter(new HinhAnhAdapter(items, new HinhAnhAdapter.OnItemClickListener() {
+        mRecyclerView.setAdapter(new HinhAnhAdapter(getContext(),items, new HinhAnhAdapter.OnItemClickListener() {
             @Override
             public void onItemSelect(int position) {
                 Intent intent = new Intent(getActivity(),ViewImageActivity.class);

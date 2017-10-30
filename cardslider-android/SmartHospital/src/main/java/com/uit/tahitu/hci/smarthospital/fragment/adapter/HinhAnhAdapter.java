@@ -1,5 +1,6 @@
 package com.uit.tahitu.hci.smarthospital.fragment.adapter;
 
+import android.content.Context;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.uit.tahitu.hci.smarthospital.R;
 
 import java.util.List;
@@ -21,7 +23,7 @@ import butterknife.ButterKnife;
 public class HinhAnhAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Object> contents;
-
+    Context context;
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
     private OnItemClickListener mCallBack;
@@ -30,9 +32,10 @@ public class HinhAnhAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         void onItemSelect(int position);
     }
 
-    public HinhAnhAdapter(List<Object> contents, OnItemClickListener mCallBack) {
+    public HinhAnhAdapter(Context context,List<Object> contents, OnItemClickListener mCallBack) {
         this.contents = contents;
         this.mCallBack = mCallBack;
+        this.context = context;
     }
 
     @Override
@@ -136,6 +139,54 @@ public class HinhAnhAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             pic10.setOnClickListener(this);
             pic11.setOnClickListener(this);
             pic12.setOnClickListener(this);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_bando)
+                    .into(pic1);
+
+            Glide.with(context)
+                    .load(R.drawable.sodosmall)
+                    .into(pic2);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_huongdan)
+                    .into(pic3);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_mo)
+                    .into(pic4);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_nhanvien)
+                    .into(pic5);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_sodo)
+                    .into(pic6);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_sodobomay)
+                    .into(pic7);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_toancanh)
+                    .into(pic8);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_quytrinhhiemmuon)
+                    .into(pic9);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_toancanh2)
+                    .into(pic10);
+
+            Glide.with(context)
+                    .load(R.drawable.bvtudu_thoigiantramau)
+                    .into(pic11);
+
+            Glide.with(context)
+                    .load(R.drawable.khamthaismall)
+                    .into(pic12);
         }
 
         @Override

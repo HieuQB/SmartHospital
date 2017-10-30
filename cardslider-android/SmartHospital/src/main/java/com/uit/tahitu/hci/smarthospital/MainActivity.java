@@ -5,24 +5,17 @@ import android.animation.ObjectAnimator;
 import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.RequiresApi;
 import android.support.annotation.StyleRes;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.view.ViewTreeObserver;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextSwitcher;
@@ -40,7 +33,6 @@ import com.uit.tahitu.hci.smarthospital.customView.DialogPositiveNegative;
 import com.uit.tahitu.hci.smarthospital.utils.DecodeBitmapTask;
 
 import java.util.Locale;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.tvLienHe)
     TextView tvLienHe;
 
-    private final int[][] dotCoords = new int[5][2];
     private final int[] pics = {R.drawable.p5, R.drawable.bvtudu_toancanh2, R.drawable.p3, R.drawable.p4, R.drawable.p1, R.drawable.p6};
     private final int[] maps = {R.drawable.map1, R.drawable.map2, R.drawable.map3, R.drawable.map4, R.drawable.map5,R.drawable.map6};
     private final int[] descriptions = {R.string.text1, R.string.text2, R.string.text3, R.string.text4, R.string.text5};
@@ -66,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String[] temperatures = {"15 KM", "14.5 KM", "20 KM", "6 KM", "2.7 KM"};
     private final String[] times = {"Thứ 2 - Thứ 7    7:30-16:30", "Thứ 2 - Chủ Nhật    Mở cửa cả ngày", "Thứ 2 - Thứ 6    7:30-22:00"};
 
-    private final SliderAdapter sliderAdapter = new SliderAdapter(pics, 20, new OnCardClickListener());
+    private final SliderAdapter sliderAdapter = new SliderAdapter(this ,pics, 20, new OnCardClickListener());
 
     private CardSliderLayoutManager layoutManger;
     private RecyclerView recyclerView;
@@ -111,7 +102,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Open Filter", Toast.LENGTH_SHORT).show();
             }
         });
+        topBar.setOnClickListener(new CustomViewTopBar.OnItemClickListener() {
+            @Override
+            public void onLeftClicked() {
+                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
+            }
 
+            @Override
+            public void onRightButtonOneClicked() {
+                Toast.makeText(MainActivity.this, "Open Profile User - Comming Soon", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRightButtonTwoClicked() {
+                startActivity(new Intent(MainActivity.this, FilterActivity.class));
+            }
+
+            @Override
+            public void onRightButtonThreeClicked() {
+
+            }
+        });
         setUpMenu();
         initRecyclerView();
         initCountryText();
@@ -333,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivityForResult(intent,REQUEST_LOGIN);
 
         }else if (view == itemCalendar){
-            Intent intent = new Intent(this,TimeLineDoctorActivity.class);
+            Intent intent = new Intent(this,AuthorInformationActivity.class);
             startActivity(intent);
         }else if (view == itemSettings){
 
@@ -404,7 +415,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (activeCardPosition == RecyclerView.NO_POSITION) {
                 return;
             }
-
             final int clickedPosition = recyclerView.getChildAdapterPosition(view);
             if (clickedPosition == activeCardPosition) {
                 final Intent intent = new Intent(MainActivity.this, DetailsActivity.class);

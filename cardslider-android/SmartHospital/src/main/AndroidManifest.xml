@@ -26,13 +26,11 @@
         <activity
             android:name=".DetailsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".TimeLineDoctorActivity"></activity>
-        <activity android:name=".ProfileHospitalActivity"></activity>
+        <activity android:name=".AuthorInformationActivity"/>
+        <activity android:name=".ProfileHospitalActivity"/>
         <activity android:name=".ViewImageActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
-
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".FilterActivity"/>
+        <activity android:name=".ForgotPasswordActivity"/>
     </application>
 </manifest>

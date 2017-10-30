@@ -146,8 +146,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_bando" />
+                            android:scaleType="centerCrop" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -160,8 +159,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/sodosmall" />
+                            android:scaleType="centerCrop" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -174,8 +172,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_huongdan" />
+                            android:scaleType="centerCrop" />
 
                     </LinearLayout>
 
@@ -194,8 +191,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_mo" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:layout_width="1dp"
@@ -208,8 +204,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_nhanvien" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:layout_width="1dp"
@@ -222,8 +217,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_sodo" />
+                            android:scaleType="centerCrop" />
 
                     </LinearLayout>
 
@@ -242,8 +236,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_sodobomay" />
+                            android:scaleType="centerCrop" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -256,8 +249,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_toancanh" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:layout_width="1dp"
@@ -270,8 +262,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_quytrinhhiemmuon" />
+                            android:scaleType="centerCrop" />
 
                     </LinearLayout>
 
@@ -414,8 +405,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_toancanh2" />
+                            android:scaleType="centerCrop" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -428,8 +418,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/bvtudu_thoigiantramau" />
+                            android:scaleType="centerCrop" />
 
                         <TextView
                             android:layout_width="1dp"
@@ -442,8 +431,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/khamthaismall" />
+                            android:scaleType="centerCrop"/>
 
                     </LinearLayout>
 

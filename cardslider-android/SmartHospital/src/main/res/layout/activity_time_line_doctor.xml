@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.uit.tahitu.hci.smarthospital.TimeLineDoctorActivity">
+    tools:context="com.uit.tahitu.hci.smarthospital.AuthorInformationActivity">
 
     <android.support.design.widget.AppBarLayout
         android:fitsSystemWindows="true"
