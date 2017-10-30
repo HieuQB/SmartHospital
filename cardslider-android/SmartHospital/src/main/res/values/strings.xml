@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Smart Hospital</string>
     <string name="text1">Cấp cứu, Khám bảo hiểm, khám ngoài giờ, Khám cho người nước ngoài</string>
-    <string name="text2">Gwanghwamun is the main and largest gate of Gyeongbokgung Palace, in Jongno-gu, Seoul, South Korea.</string>
-    <string name="text3">Tower Bridge is a combined bascule and suspension bridge in London built in 1886–1894.</string>
-    <string name="text4">The Temple of Heaven is an imperial complex of religious buildings situated in the southeastern part…</string>
-    <string name="text5">The Aegean Islands are within the sea and some bound it on its southern periphery…</string>
+    <string name="text2">Chuyên khám Sản Phụ Khoa, chăm sóc và khám thai định kỳ, siêu âm sản khoa</string>
+    <string name="text3">Chuyên khám Tổng quát, Tim mạch, Sản phụ khoa, Tai mũi họng, Răng hàm mặt</string>
+    <string name="text4">Chuyên về trị bệnh truyền nhiễm, điều trị bênh gan, tiêm chủng, ngừa vắc xin</string>
+    <string name="text5">Gói Thai Sản Thường và Mổ, Khám Sức Khỏe Tổng Quát, Khám Tầm Soát Ung Thư</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
 
@@ -20,4 +20,5 @@
     <string name="forgot_send">Send</string>
     <string name="ma_xac_thuc">Nhập mã xác thực</string>
     <string name="send_to">Send to</string>
+    <string name="enter_title_here">Nhập tên Bệnh Viện</string>
 </resources>

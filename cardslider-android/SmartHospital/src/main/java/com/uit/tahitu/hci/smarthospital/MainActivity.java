@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.tvLienHe)
     TextView tvLienHe;
 
-    private final int[] pics = {R.drawable.p5, R.drawable.bvtudu_toancanh2, R.drawable.p3, R.drawable.p4, R.drawable.p1, R.drawable.p6};
+    private final int[] pics = {R.drawable.p1, R.drawable.bvtudu_toancanh2, R.drawable.p3, R.drawable.p4, R.drawable.p5, R.drawable.p6};
     private final int[] maps = {R.drawable.map1, R.drawable.map2, R.drawable.map3, R.drawable.map4, R.drawable.map5,R.drawable.map6};
     private final int[] descriptions = {R.string.text1, R.string.text2, R.string.text3, R.string.text4, R.string.text5};
-    private final String[] countries = {"Bệnh Viện Đa Khoa Quốc Tế Vinmec", "Bệnh viện Phụ Sản Từ Dũ", "Phòng Khám Đa Khoa Quốc Tế Sài Gòn", "Bệnh viện Nhiệt Đới", "Bệnh viện Quận Thủ Đức", "Bệnh viện Đa Khoa Đồng Nai"};
-    private final String[] places = {"29 Phú Châu, Tam Phú, Hồ Chí Minh, Linh Trung, Thủ Đức", "284 Cống Quỳnh, Phạm Ngũ Lão, Quận 1", "6 Trịnh Văn Cấn, Cầu Ông Lãnh, Quận 1", "764 Võ Văn Kiệt, phường 1, TP Hồ Chí Minh", "1B Đường Hoàng Hữu Nam, Long Thạnh Mỹ, Quận 9"};
+    private final String[] countries = {"Bệnh viện Quận Thủ Đức", "Bệnh viện Phụ Sản Từ Dũ", "Phòng Khám Đa Khoa Quốc Tế Sài Gòn", "Bệnh viện Nhiệt Đới", "Bệnh Viện Đa Khoa Vinmec Hồ Chí Minh", "Bệnh viện Đa Khoa Đồng Nai"};
+    private final String[] places = {"29 Phú Châu, Tam Phú, Hồ Chí Minh, Linh Trung, Thủ Đức", "Số 284 Cống Quỳnh, Phạm Ngũ Lão, Quận 1, Thành phố Hồ Chí Minh", "6 Trịnh Văn Cấn, Cầu Ông Lãnh, Quận 1, Thành phố Hồ Chí Minh", "764 Võ Văn Kiệt, phường 1, Thành phố Hồ Chí Minh", "Số 2-2 bis Trần Cao Vân, Phường Đakao, Quận 1","1B Đường Hoàng Hữu Nam, Long Thạnh Mỹ, Quận 9"};
     private final String[] temperatures = {"15 KM", "14.5 KM", "20 KM", "6 KM", "2.7 KM"};
     private final String[] times = {"Thứ 2 - Thứ 7    7:30-16:30", "Thứ 2 - Chủ Nhật    Mở cửa cả ngày", "Thứ 2 - Thứ 6    7:30-22:00"};
 
@@ -87,21 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ButterKnife.bind(this);
 
-        topBar.setTextTitle("List Hospital");
+        topBar.setTextTitle("Smart Hospital");
         topBar.setImageViewLeft(CustomViewTopBar.LEFT_MENU);
-        topBar.setImageViewRight(CustomViewTopBar.DRAWABLE_FILTER, CustomViewTopBar.DRAWABLE_MY_RECRUITMENT);
+        topBar.setImageViewRight(CustomViewTopBar.DRAWABLE_SEARCH, CustomViewTopBar.DRAWABLE_MY_RECRUITMENT);
         topBar.setImageViewRightVisible(View.VISIBLE,View.GONE);
-        topBar.setOnLeftRightClickListener(new CustomViewTopBar.OnLeftRightClickListener() {
-            @Override
-            public void onLeftClicked() {
-                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-
-            @Override
-            public void onRightClicked() {
-                Toast.makeText(MainActivity.this, "Open Filter", Toast.LENGTH_SHORT).show();
-            }
-        });
         topBar.setOnClickListener(new CustomViewTopBar.OnItemClickListener() {
             @Override
             public void onLeftClicked() {
@@ -157,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.setUse3D(true);
-        resideMenu.setBackground(R.drawable.menu_background);
+        resideMenu.setBackground(R.drawable.bg_intro);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
         //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.

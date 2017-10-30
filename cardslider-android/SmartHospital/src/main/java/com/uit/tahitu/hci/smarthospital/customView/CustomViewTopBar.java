@@ -35,6 +35,7 @@ public class CustomViewTopBar
     public static final int DRAWABLE_ADD_TRANSPARENT = R.drawable.ic_add_transparent;
     public static final int DRAWABLE_BACK = R.drawable.ic_back_white;
     public static final int DRAWABLE_MY_RECRUITMENT = R.drawable.ic_user_confirm;
+    public static final int DRAWABLE_SEARCH = R.drawable.ic_search_white;
 
     @BindView(R.id.ln_left)
     LinearLayout lnLeft;

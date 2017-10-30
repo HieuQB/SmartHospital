@@ -1,144 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:background="@color/white"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <com.uit.tahitu.hci.smarthospital.customView.CustomViewTopBar
-        android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:id="@+id/top_bar"
+        android:layout_height="wrap_content"/>
 
-    <com.uit.tahitu.hci.smarthospital.customView.StickyScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="15dp">
-
-            <TextView
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:paddingStart="@dimen/small_10dp"
-                android:tag="sticky"
-                android:text="Tên bệnh viện"
-                android:background="@color/app_color"
-                android:elevation="@dimen/small_8dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
-                android:id="@+id/txt_new_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/accounting_10dp"
-                android:gravity="center_vertical"
-                android:hint="Nhập tên Bệnh Viện"
-                android:inputType="textCapSentences"
-                android:minHeight="@dimen/min_title"
-                android:padding="@dimen/small_10dp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/default_text_size" />
-
-
-            <LinearLayout
-                android:elevation="@dimen/small_8dp"
-                android:layout_width="match_parent"
-                android:background="@color/app_color"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:tag="sticky">
-
-                <TextView
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/small_10dp"
-                    android:text="Quận - Huyện"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/imv_add_quan"
-                    style="@style/btnAdd"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="15dp" />
-
-            </LinearLayout>
-            <android.support.v4.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rcv_quanhuyen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="20dp" />
-            </android.support.v4.widget.NestedScrollView>
-
-
-            <LinearLayout
-                android:elevation="@dimen/small_8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/app_color"
-                android:orientation="horizontal"
-                android:tag="sticky">
-
-                <TextView
-                    android:textStyle="bold"
-                    android:elevation="@dimen/small_8dp"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/small_10dp"
-                    android:text="Khoa điều trị"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/imv_add_khoa"
-                    style="@style/btnAdd"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="15dp" />
-
-            </LinearLayout>
-
-            <android.support.v4.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rcv_khoa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="20dp" />
-
-            </android.support.v4.widget.NestedScrollView>
-
-
-            <TextView
-                android:elevation="@dimen/small_8dp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/app_color"
-                android:gravity="center_vertical"
-                android:paddingStart="@dimen/small_10dp"
-                android:tag="sticky"
-                android:text="Loại Bệnh Viện"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/ln_1"
@@ -155,14 +35,14 @@
                     android:clickable="false" />
 
                 <TextView
-                    android:id="@+id/tv_no"
+                    android:id="@+id/tv_name_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Bệnh viện Nhà Nước"
+                    android:text="Quận 1 (221 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
@@ -182,20 +62,20 @@
                     android:clickable="false" />
 
                 <TextView
+                    android:id="@+id/tv_name_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Bệnh viện Tư Nhân"
+                    android:text="Quận 2 (34 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ln_3"
-                android:paddingBottom="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/large_30dp"
@@ -209,30 +89,17 @@
                     android:clickable="false" />
 
                 <TextView
+                    android:id="@+id/tv_name_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Bệnh viện Quốc Tế"
+                    android:text="Quận 3 (182 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
-
-
-            <TextView
-                android:textStyle="bold"
-                android:elevation="@dimen/small_8dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/app_color"
-                android:gravity="center_vertical"
-                android:paddingStart="@dimen/small_10dp"
-                android:tag="sticky"
-                android:text="Tiêu chí khác"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/ln_4"
@@ -249,13 +116,14 @@
                     android:clickable="false" />
 
                 <TextView
+                    android:id="@+id/tv_name_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Top 10 Bệnh Viện gần bạn nhất"
+                    android:text="Quận 8 (118 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
@@ -275,13 +143,14 @@
                     android:clickable="false" />
 
                 <TextView
+                    android:id="@+id/tv_name_5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Top 10 Bệnh Viện có Rating cao nhất"
+                    android:text="Quận Thủ Đức (102 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
@@ -301,13 +170,14 @@
                     android:clickable="false" />
 
                 <TextView
+                    android:id="@+id/tv_name_6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Top 10 Bệnh Viện có Rating thấp nhất"
+                    android:text="Quận Phú Nhuận (158 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
@@ -327,18 +197,103 @@
                     android:clickable="false" />
 
                 <TextView
+                    android:id="@+id/tv_name_7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/large_xi"
                     android:layout_marginTop="@dimen/small_16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Top 10 Bệnh Viện được tìm nhiều nhất"
+                    android:text="Quận Bình Thạnh (112 Bệnh Viện)"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ln_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_30dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large"
+                    android:clickable="false" />
+
+                <TextView
+                    android:id="@+id/tv_name_8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/large_xi"
+                    android:layout_marginTop="@dimen/small_16dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="Huyện Nhà Bè (8 Bệnh Viện)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_30dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large"
+                    android:clickable="false" />
+
+                <TextView
+                    android:id="@+id/tv_name_9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/large_xi"
+                    android:layout_marginTop="@dimen/small_16dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="Huyện Củ Chi (33 Bệnh Viện)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_30dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large"
+                    android:clickable="false" />
+
+                <TextView
+                    android:id="@+id/tv_name_10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/large_xi"
+                    android:layout_marginTop="@dimen/small_16dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="Huyện Hóc Môn (64 Bệnh Viện)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+            </LinearLayout>
+
+
+
         </LinearLayout>
 
-    </com.uit.tahitu.hci.smarthospital.customView.StickyScrollView>
+    </ScrollView>
+
 </LinearLayout>

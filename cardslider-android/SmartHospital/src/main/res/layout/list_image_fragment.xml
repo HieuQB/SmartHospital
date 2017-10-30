@@ -43,11 +43,12 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/distance" />
+                            android:src="@drawable/ic_info_outline_black_24dp" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:text="Một số hình ảnh hệ thống cung cấp"
@@ -75,11 +76,12 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/distance" />
+                            android:src="@drawable/ic_remove_red_eye_black_24dp" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:text="Số lượng ảnh : 9"
@@ -107,11 +109,12 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/distance" />
+                            android:src="@drawable/ic_date_range_black_24dp" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:text="Ngày cập nhật : 29/10/2017"
@@ -303,11 +306,12 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/distance" />
+                            android:src="@drawable/ic_info_outline_black_24dp" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:text="Một số hình ảnh người dùng ứng dụng cung cấp"
@@ -335,11 +339,12 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/distance" />
+                            android:src="@drawable/ic_remove_red_eye_black_24dp" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:text="Số lượng ảnh : 3"
@@ -367,11 +372,12 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/distance" />
+                            android:src="@drawable/ic_date_range_black_24dp" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:text="Ngày cập nhật : 29/10/2017"

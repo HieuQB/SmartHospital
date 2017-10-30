@@ -168,7 +168,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mở cửa cả ngày"
-                        android:textColor="@color/green"
+                        android:textColor="@color/app_color"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 

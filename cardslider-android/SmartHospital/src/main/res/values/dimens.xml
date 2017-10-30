@@ -24,4 +24,8 @@
     <dimen name="small_8dp">8dp</dimen>
     <dimen name="small_12dp">12dp</dimen>
     <dimen name="small_6dp">6dp</dimen>
+    <dimen name="accounting_10dp">10dp</dimen>
+    <dimen name="min_title">65dp</dimen>
+    <dimen name="small_16dp">16dp</dimen>
+    <dimen name="large_xi">20dp</dimen>
 </resources>

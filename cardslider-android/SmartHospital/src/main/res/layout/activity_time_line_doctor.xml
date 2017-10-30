@@ -82,7 +82,7 @@
 
                     <ImageView
                         android:scaleType="centerCrop"
-                        android:src="@drawable/map_london"
+                        android:src="@drawable/p1"
                         android:layout_margin="20dp"
                         android:layout_gravity="center"
                         android:layout_width="200dp"
@@ -113,14 +113,6 @@
                     android:background="#007788"
                     app:discrollve_alpha="true"
                     app:discrollve_threshold="0.3" />
-
-                <ImageView
-                    android:scaleType="centerCrop"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    app:discrollve_alpha="true"
-                    app:discrollve_translation="fromLeft|fromBottom"
-                    android:src="@drawable/map_beijing" />
 
                 <TextView
                     android:text="2020 : Phát minh ra Smart Hospital cho mọi người"
@@ -157,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/map_greece"
+                    android:src="@drawable/bvtudu_nhanvien"
                     app:discrollve_scaleX="true"
                     app:discrollve_scaleY="true"  />
 
