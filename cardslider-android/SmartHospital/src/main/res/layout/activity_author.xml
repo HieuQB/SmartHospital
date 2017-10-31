@@ -18,7 +18,7 @@
             app:expandedTitleTextAppearance="@style/text_expand"
             app:collapsedTitleTextAppearance="@style/text"
             app:contentScrim="@color/blue"
-            app:title="Bs.Nguyễn Minh Hiếu"
+            app:title="  Bs.Nguyễn Minh Hiếu"
             android:fitsSystemWindows="true"
             app:expandedTitleGravity="left|bottom"
             android:layout_width="match_parent"
@@ -116,7 +116,7 @@
 
                 <TextView
                     android:text="2020 : Phát minh ra Smart Hospital cho mọi người"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:gravity="center"
                     app:discrollve_fromBgColor="#88EE66"

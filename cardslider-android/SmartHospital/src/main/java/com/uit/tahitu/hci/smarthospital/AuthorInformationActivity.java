@@ -1,7 +1,7 @@
 package com.uit.tahitu.hci.smarthospital;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,22 +21,25 @@ public class AuthorInformationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_line_doctor);
+        setContentView(R.layout.activity_author);
         ButterKnife.bind(this);
         gyroscopeObserver = new GyroscopeObserver();
-
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-        }
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        setUpToolbar();
 
         PanoramaImageView panoramaImageView = (PanoramaImageView) findViewById(R.id.panorama_image_view);
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver);
+    }
+
+    private void setUpToolbar() {
+        setSupportActionBar(toolbar);
+        ActionBar bar = getSupportActionBar();
+        if(bar == null) {
+            return;
+        }
+
+        bar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setHomeButtonEnabled(true);
     }
 
     @Override

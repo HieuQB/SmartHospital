@@ -336,7 +336,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this,AuthorInformationActivity.class);
             startActivity(intent);
         }else if (view == itemSettings){
-
+            Toast.makeText(this, "♥ Function Coming Soon ♥", Toast.LENGTH_SHORT).show();
         } else if(view == itemShare){
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
