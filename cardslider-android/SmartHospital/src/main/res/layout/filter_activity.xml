@@ -27,7 +27,7 @@
                 android:paddingStart="@dimen/small_10dp"
                 android:tag="sticky"
                 android:text="Tên bệnh viện"
-                android:background="@color/app_color"
+                android:background="@color/app_header_filter"
                 android:elevation="@dimen/small_8dp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -52,7 +52,7 @@
             <LinearLayout
                 android:elevation="@dimen/small_8dp"
                 android:layout_width="match_parent"
-                android:background="@color/app_color"
+                android:background="@color/app_header_filter"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:tag="sticky">
@@ -90,7 +90,7 @@
                 android:elevation="@dimen/small_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/app_color"
+                android:background="@color/app_header_filter"
                 android:orientation="horizontal"
                 android:tag="sticky">
 
@@ -132,7 +132,7 @@
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/app_color"
+                android:background="@color/app_header_filter"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/small_10dp"
                 android:tag="sticky"
@@ -226,7 +226,7 @@
                 android:elevation="@dimen/small_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/app_color"
+                android:background="@color/app_header_filter"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/small_10dp"
                 android:tag="sticky"

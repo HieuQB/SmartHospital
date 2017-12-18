@@ -36,10 +36,16 @@ public class AuthorInformationActivity extends AppCompatActivity {
         if(bar == null) {
             return;
         }
-
-        bar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setHomeButtonEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+//        bar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+//        bar.setDisplayHomeAsUpEnabled(true);
+//        bar.setDisplayShowHomeEnabled(true);
     }
 
     @Override

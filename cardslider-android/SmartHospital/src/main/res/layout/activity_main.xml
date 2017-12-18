@@ -14,7 +14,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="53dp"
         android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
@@ -26,44 +26,31 @@
 
             <TextView
                 android:id="@+id/tv_country_1"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:maxLines="1"
-                android:paddingEnd="10dp"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
                 android:textColor="@color/black"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                tools:ignore="EllipsizeMaxLines" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tv_country_2"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="50dp"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:maxLines="1"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
                 android:textColor="@color/black"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                tools:ignore="EllipsizeMaxLines" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </FrameLayout>
 
         <FrameLayout
+            android:layout_marginTop="8dp"
             android:id="@+id/frameLayout"
             android:layout_width="85dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_height="38dp"
             android:background="@drawable/temperature_background">
 
             <TextSwitcher

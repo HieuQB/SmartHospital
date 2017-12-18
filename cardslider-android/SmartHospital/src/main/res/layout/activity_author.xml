@@ -18,7 +18,7 @@
             app:expandedTitleTextAppearance="@style/text_expand"
             app:collapsedTitleTextAppearance="@style/text"
             app:contentScrim="@color/blue"
-            app:title="  Bs.Nguyễn Minh Hiếu"
+            app:title="   TaHiTu Team"
             android:fitsSystemWindows="true"
             app:expandedTitleGravity="left|bottom"
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 android:id="@+id/panorama_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/hieu"
+                android:src="@drawable/dhcntt"
                 app:piv_enablePanoramaMode="true"
                 app:piv_show_scrollbar="true"
                 app:piv_invertScrollDirection="false" />

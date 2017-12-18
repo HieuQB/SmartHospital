@@ -246,8 +246,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         country2TextView.setAlpha(0f);
         country1TextView.setSelected(true);
         country2TextView.setSelected(true);
-        country1TextView.setTypeface(Typeface.createFromAsset(getAssets(), "open-sans-extrabold.ttf"));
-        country2TextView.setTypeface(Typeface.createFromAsset(getAssets(), "open-sans-extrabold.ttf"));
+        country1TextView.setTypeface(Typeface.createFromAsset(getAssets(), "font/open-sans-extrabold.ttf"));
+        country2TextView.setTypeface(Typeface.createFromAsset(getAssets(), "font/open-sans-extrabold.ttf"));
     }
 
     private void setCountryText(String text, boolean left2right) {
