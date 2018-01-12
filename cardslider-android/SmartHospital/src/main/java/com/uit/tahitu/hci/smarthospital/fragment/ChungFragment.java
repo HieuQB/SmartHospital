@@ -73,6 +73,11 @@ public class ChungFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
                 startActivity(intent);
             }
+
+            @Override
+            public void onLikeClick() {
+                Toast.makeText(getActivity(), "Bạn đã ấn like", Toast.LENGTH_SHORT).show();
+            }
         }));
     }
 }

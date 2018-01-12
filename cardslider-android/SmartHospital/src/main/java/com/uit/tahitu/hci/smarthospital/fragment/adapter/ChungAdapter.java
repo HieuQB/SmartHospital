@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.uit.tahitu.hci.smarthospital.R;
@@ -26,6 +27,7 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     public interface OnItemClickListener {
         void onItemClick();
+        void onLikeClick();
     }
     public ChungAdapter(List<Object> contents, OnItemClickListener mCallBack) {
         this.contents = contents;
@@ -61,7 +63,7 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             case TYPE_CELL: {
                 view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.list_item_card_small, parent, false);
-                return new RecyclerView.ViewHolder(view) {
+                return new HomePageDetailHolder(view) {
                 };
             }
         }
@@ -79,6 +81,24 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
     }
 
+    class HomePageDetailHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        @BindView(R.id.btnLike_1)
+        LinearLayout btnLike1;
+
+        public HomePageDetailHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            btnLike1.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == btnLike1.getId()){
+                mCallBack.onLikeClick();
+            }
+        }
+    }
     class HomePageHeaderHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 

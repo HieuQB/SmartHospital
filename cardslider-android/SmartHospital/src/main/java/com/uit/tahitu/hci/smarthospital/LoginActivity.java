@@ -79,6 +79,6 @@ public class LoginActivity extends AppCompatActivity {
     }
     
     private boolean CheckLogin(){
-        return Objects.equals(edtEmail.getText().toString(), "hieuminh@gmail.com") && (Objects.equals(edtPassword.getText().toString().trim(), "123456"));
+        return Objects.equals(edtEmail.getText().toString(), "hieuit275@gmail.com") && (Objects.equals(edtPassword.getText().toString().trim(), "123456"));
     }
 }
