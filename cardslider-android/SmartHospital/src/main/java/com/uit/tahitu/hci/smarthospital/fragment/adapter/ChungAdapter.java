@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,8 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
+    static boolean like = true;
+    static boolean evaluate = true;
     private ChungAdapter.OnItemClickListener mCallBack;
 
     public interface OnItemClickListener {
@@ -86,21 +89,46 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @BindView(R.id.btnLike_1)
         LinearLayout btnLike1;
 
+        @BindView(R.id.iv_like_1)
+        ImageView ivLike1;
+
         public HomePageDetailHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             btnLike1.setOnClickListener(this);
+            if (!like) {
+                ivLike1.setImageResource(R.drawable.comment);
+            }
+            else {
+                ivLike1.setImageResource(R.drawable.heart);
+            }
         }
 
         @Override
         public void onClick(View v) {
             if(v.getId() == btnLike1.getId()){
-                mCallBack.onLikeClick();
+                if (like) {
+                    ivLike1.setImageResource(R.drawable.comment);
+                    like = !like;
+                }
+                else {
+                    ivLike1.setImageResource(R.drawable.heart);
+                    like = !like;
+                }
+//                mCallBack.onLikeClick();
             }
         }
     }
     class HomePageHeaderHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        @BindView(R.id.iv_1)
+        ImageView iv1;
+
+        @BindView(R.id.tv_1)
+        TextView tv1;
+
+        @BindView(R.id.tv_evaluate)
+        TextView tvEvaluate;
 
         @BindView(R.id.tvLienHe)
         TextView tvLienHe;
@@ -109,12 +137,35 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             super(itemView);
             ButterKnife.bind(this, itemView);
             tvLienHe.setOnClickListener(this);
+            iv1.setOnClickListener(this);
+
+            if (evaluate) {
+                tvEvaluate.setText("54 lượt đánh giá");
+                tv1.setText("Tuyệt vời 30");
+            }
+            else {
+                tvEvaluate.setText("55 lượt đánh giá");
+                tv1.setText("Tuyệt vời 31");
+            }
         }
 
         @Override
         public void onClick(View v) {
             if(v.getId() == tvLienHe.getId()){
                 mCallBack.onItemClick();
+            }
+
+            if(v.getId() == iv1.getId()){
+                if (evaluate) {
+                    tvEvaluate.setText("55 lượt đánh giá");
+                    tv1.setText("Tuyệt vời 31");
+                    evaluate = !evaluate;
+                }
+                else {
+                    tvEvaluate.setText("54 lượt đánh giá");
+                    tv1.setText("Tuyệt vời 30");
+                    evaluate = !evaluate;
+                }
             }
         }
     }
