@@ -193,10 +193,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 myMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
                 MarkerOptions option = new MarkerOptions();
-                option.title("My Location");
+                option.title("Vị trí của bạn");
                 option.position(new LatLng(10.870327, 106.802936));
-                Marker currentMarker = myMap.addMarker(option);
-                currentMarker.showInfoWindow();
+                myMap.addMarker(option).showInfoWindow();
+                myMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(10.861815, 106.780430))
+                        .title("Bệnh viện"));
             }
         });
         myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -307,8 +309,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         country2TextView.setAlpha(0f);
         country1TextView.setSelected(true);
         country2TextView.setSelected(true);
-        country1TextView.setTypeface(Typeface.createFromAsset(getAssets(), "font/open-sans-extrabold.ttf"));
-        country2TextView.setTypeface(Typeface.createFromAsset(getAssets(), "font/open-sans-extrabold.ttf"));
+        country1TextView.setTypeface(Typeface.createFromAsset(getAssets(), "font/DroidSerif-Bold.ttf"));
+        country2TextView.setTypeface(Typeface.createFromAsset(getAssets(), "font/DroidSerif-Bold.ttf"));
     }
 
     private void setCountryText(String text, boolean left2right) {
