@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
@@ -23,6 +24,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.uit.tahitu.CardSliderLayoutManager;
 import com.uit.tahitu.CardSnapHelper;
 import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenu;
@@ -78,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.top_bar)
     CustomViewTopBar topBar;
     private int REQUEST_LOGIN = 27;
+
+    GoogleMap myMap;
 
 
     @Override
@@ -140,6 +153,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
+        SupportMapFragment mapFragment
+                = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+
+
+        // Sét đặt sự kiện thời điểm GoogleMap đã sẵn sàng.
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                onMyMapReady(googleMap);
+            }
+        });
+    }
+
+    private void onMyMapReady(GoogleMap googleMap) {
+
+        // Lấy đối tượng Google Map ra:
+        myMap = googleMap;
+
+        // Thiết lập sự kiện đã tải Map thành công
+        myMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                PolylineOptions rectOptions = new PolylineOptions()
+                        .add(new LatLng(10.870327, 106.802936))
+                        .add(new LatLng(10.861815, 106.780430))
+                        .color(Color.RED); // Closes the polyline.
+
+                Polyline polyline = myMap.addPolyline(rectOptions);
+
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(10.870327, 106.802936))             // Sets the center of the map to location user
+                        .zoom(13)                   // Sets the zoom
+                        .bearing(90)                // Sets the orientation of the camera to east
+                        .tilt(40)                   // Sets the tilt of the camera to 30 degrees
+                        .build();                   // Creates a CameraPosition from the builder
+                myMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+                MarkerOptions option = new MarkerOptions();
+                option.title("My Location");
+                option.position(new LatLng(10.870327, 106.802936));
+                Marker currentMarker = myMap.addMarker(option);
+                currentMarker.showInfoWindow();
+            }
+        });
+        myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        myMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
     private void setUpMenu() {
