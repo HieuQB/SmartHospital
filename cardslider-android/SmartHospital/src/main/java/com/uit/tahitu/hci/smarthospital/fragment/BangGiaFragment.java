@@ -59,7 +59,6 @@ public class BangGiaFragment extends Fragment {
             items.add(new Object());
         }
 
-
         //setup materialviewpager
 
         if (GRID_LAYOUT) {

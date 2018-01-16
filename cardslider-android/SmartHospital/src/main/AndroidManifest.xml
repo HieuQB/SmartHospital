@@ -41,6 +41,7 @@
         <activity android:name=".ForgotPasswordActivity"/>
         <activity android:name=".ChoiceDepartmentActivity"/>
         <activity android:name=".ChoiceDistrictActivity"/>
+        <activity android:name=".RegisterActivity"/>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

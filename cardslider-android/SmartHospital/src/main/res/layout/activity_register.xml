@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_intro"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/super_xlarge">
+
+        <ImageView
+            android:id="@+id/register_btn_back"
+            android:layout_width="@dimen/icon_back_width"
+            android:layout_height="@dimen/icon_back_height"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/large"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_back_white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="Đăng Ký"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text_size" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.uit.tahitu.hci.smarthospital.customView.CustomEditText
+            android:id="@+id/forgot_edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:background="@drawable/bg_edit_text_white"
+            android:gravity="center_vertical"
+            android:hint="Nhập email của bạn"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:paddingEnd="@dimen/mini"
+            android:padding="14dp"
+            android:imeOptions="actionNext"
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/default_text_size" />
+
+
+
+        <!--<Button-->
+            <!--android:id="@+id/forgot_btn_send"-->
+            <!--android:layout_width="@dimen/login_btn_width"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:background="@drawable/bg_btn_blue_corner"-->
+            <!--android:text="@string/forgot_send"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:textColor="@color/color_text_white_pressed"-->
+            <!--android:textSize="@dimen/default_text_size" />-->
+
+
+
+        <com.uit.tahitu.hci.smarthospital.customView.CustomEditText
+            android:layout_marginTop="@dimen/forgot_margin"
+            android:maxHeight="44dp"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:background="@drawable/bg_edit_text_white"
+            android:gravity="center_vertical"
+            android:hint="Nhập tên của bạn"
+            android:inputType="text"
+            android:lines="1"
+            android:padding="14dp"
+            android:paddingEnd="@dimen/mini"
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/default_text_size" />
+        <com.uit.tahitu.hci.smarthospital.customView.CustomEditText
+            android:id="@+id/forgot_edt_url"
+            android:layout_marginTop="@dimen/forgot_margin"
+            android:maxHeight="44dp"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:background="@drawable/bg_edit_text_white"
+            android:gravity="center_vertical"
+            android:hint="Nhập mật khẩu"
+            android:inputType="text"
+            android:lines="1"
+            android:padding="14dp"
+            android:paddingEnd="@dimen/mini"
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/default_text_size" />
+        <com.uit.tahitu.hci.smarthospital.customView.CustomEditText
+            android:layout_marginTop="@dimen/forgot_margin"
+            android:maxHeight="44dp"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:background="@drawable/bg_edit_text_white"
+            android:gravity="center_vertical"
+            android:hint="Nhập mật lại khẩu"
+            android:inputType="text"
+            android:lines="1"
+            android:padding="14dp"
+            android:paddingEnd="@dimen/mini"
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/default_text_size" />
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="@dimen/login_btn_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn_blue_corner"
+            android:text="Đăng ký"
+            android:textAllCaps="false"
+            android:textColor="@color/color_text_white_pressed"
+            android:textSize="@dimen/default_text_size" />
+    </LinearLayout>
+
+</LinearLayout>
