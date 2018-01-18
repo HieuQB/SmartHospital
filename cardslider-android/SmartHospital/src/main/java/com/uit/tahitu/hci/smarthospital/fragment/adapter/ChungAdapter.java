@@ -112,7 +112,7 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             llChiaSe.setOnClickListener(this);
             llThaoLuan.setOnClickListener(this);
             if (!like) {
-                ivLike1.setImageResource(R.drawable.comment);
+                ivLike1.setImageResource(R.drawable.heart1);
             }
             else {
                 ivLike1.setImageResource(R.drawable.heart);
@@ -123,7 +123,7 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         public void onClick(View v) {
             if(v.getId() == btnLike1.getId()){
                 if (like) {
-                    ivLike1.setImageResource(R.drawable.comment);
+                    ivLike1.setImageResource(R.drawable.heart1);
                     like = !like;
                 }
                 else {
