@@ -10,6 +10,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.facebook.LoggingBehavior;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.uit.tahitu.hci.smarthospital.ResideMenu.ResideMenu;

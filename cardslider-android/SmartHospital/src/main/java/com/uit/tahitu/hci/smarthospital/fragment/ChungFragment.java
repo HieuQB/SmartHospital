@@ -16,7 +16,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.facebook.share.model.ShareHashtag;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
+import com.uit.tahitu.hci.smarthospital.CommentActivity;
 import com.uit.tahitu.hci.smarthospital.R;
 import com.uit.tahitu.hci.smarthospital.fragment.adapter.ChungAdapter;
 
@@ -79,6 +83,22 @@ public class ChungFragment extends Fragment {
             @Override
             public void onLikeClick() {
                 Toast.makeText(getActivity(), "Bạn đã ấn like", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onShareClick() {
+//                ShareLinkContent content = new ShareLinkContent.Builder()
+//                        .setContentUrl(Uri.parse("https://developers.facebook.com"))
+//                        .setShareHashtag(new ShareHashtag.Builder()
+//                                .setHashtag("#ConnectTheWorld")
+//                                .build())
+//                .build();
+//                ShareDialog.show(getActivity(), content);
+            }
+
+            @Override
+            public void onCommentClick() {
+                startActivity(new Intent(getActivity(), CommentActivity.class));
             }
         }));
     }

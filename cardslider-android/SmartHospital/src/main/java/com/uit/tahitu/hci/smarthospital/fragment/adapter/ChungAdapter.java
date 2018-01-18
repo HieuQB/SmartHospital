@@ -1,5 +1,7 @@
 package com.uit.tahitu.hci.smarthospital.fragment.adapter;
 
+import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.uit.tahitu.hci.smarthospital.R;
 
 import java.util.List;
@@ -31,6 +35,8 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public interface OnItemClickListener {
         void onItemClick();
         void onLikeClick();
+        void onShareClick();
+        void onCommentClick();
     }
     public ChungAdapter(List<Object> contents, OnItemClickListener mCallBack) {
         this.contents = contents;
@@ -92,10 +98,18 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @BindView(R.id.iv_like_1)
         ImageView ivLike1;
 
+        @BindView(R.id.ll_chia_se)
+        LinearLayout llChiaSe;
+
+        @BindView(R.id.ll_thao_luan)
+        LinearLayout llThaoLuan;
+
         public HomePageDetailHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             btnLike1.setOnClickListener(this);
+            llChiaSe.setOnClickListener(this);
+            llThaoLuan.setOnClickListener(this);
             if (!like) {
                 ivLike1.setImageResource(R.drawable.comment);
             }
@@ -116,6 +130,14 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     like = !like;
                 }
 //                mCallBack.onLikeClick();
+            }
+
+            if (v.getId() == llChiaSe.getId()) {
+                mCallBack.onShareClick();
+            }
+
+            if (v.getId() == llThaoLuan.getId()) {
+                mCallBack.onCommentClick();
             }
         }
     }
