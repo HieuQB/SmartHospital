@@ -1,6 +1,7 @@
 package com.uit.tahitu.hci.smarthospital.fragment;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -99,6 +101,12 @@ public class ChungFragment extends Fragment {
             @Override
             public void onCommentClick() {
                 startActivity(new Intent(getActivity(), CommentActivity.class));
+            }
+
+            @Override
+            public void onSTTClick() {
+                InputMethodManager imgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         }));
     }

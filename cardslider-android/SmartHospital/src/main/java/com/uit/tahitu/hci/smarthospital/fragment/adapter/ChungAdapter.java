@@ -37,6 +37,7 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         void onLikeClick();
         void onShareClick();
         void onCommentClick();
+        void onSTTClick();
     }
     public ChungAdapter(List<Object> contents, OnItemClickListener mCallBack) {
         this.contents = contents;
@@ -155,11 +156,15 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @BindView(R.id.tvLienHe)
         TextView tvLienHe;
 
+        @BindView(R.id.tv_stt)
+        TextView tvSTT;
+
         public HomePageHeaderHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             tvLienHe.setOnClickListener(this);
             iv1.setOnClickListener(this);
+            tvSTT.setOnClickListener(this);
 
             if (evaluate) {
                 tvEvaluate.setText("54 lượt đánh giá");
@@ -188,6 +193,10 @@ public class ChungAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     tv1.setText("Tuyệt vời 30");
                     evaluate = !evaluate;
                 }
+            }
+
+            if (v.getId() == tvSTT.getId()) {
+                mCallBack.onSTTClick();
             }
         }
     }
