@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Smart Hospital</string>
-    <string name="text1">Cấp cứu, Khám bảo hiểm, khám ngoài giờ, Khám cho người nước ngoài</string>
-    <string name="text2">Chuyên khám Sản Phụ Khoa, chăm sóc và khám thai định kỳ, siêu âm sản khoa</string>
-    <string name="text3">Chuyên khám Tổng quát, Tim mạch, Sản phụ khoa, Tai mũi họng, Răng hàm mặt</string>
-    <string name="text4">Chuyên về trị bệnh truyền nhiễm, điều trị bênh gan, tiêm chủng, ngừa vắc xin</string>
-    <string name="text5">Gói Thai Sản Thường và Mổ, Khám Sức Khỏe Tổng Quát, Khám Tầm Soát Ung Thư</string>
+    <string name="text1">Bệnh viện tư nhân (34 lượt đánh giá)</string>
+    <string name="text2">Bệnh viện nhà nước (54 lượt đánh giá)</string>
+    <string name="text3">Bệnh viện quốc tế (67 lượt đánh giá)</string>
+    <string name="text4">Bệnh viện tư nhân (32 lượt đánh giá)</string>
+    <string name="text5">Bệnh viện nhà nước (12 lượt đánh giá)</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
 

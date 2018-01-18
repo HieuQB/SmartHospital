@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final int[] descriptions = {R.string.text1, R.string.text2, R.string.text3, R.string.text4, R.string.text5};
     private final String[] countries = {"Bệnh viện Quận Thủ Đức", "Bệnh viện Phụ Sản Từ Dũ", "Phòng Khám Đa Khoa Quốc Tế Sài Gòn", "Bệnh viện Nhiệt Đới", "Bệnh Viện Đa Khoa Vinmec Hồ Chí Minh", "Bệnh viện Đa Khoa Đồng Nai"};
     private final String[] places = {"29 Phú Châu, Tam Phú, Hồ Chí Minh, Linh Trung, Thủ Đức", "Số 284 Cống Quỳnh, Phạm Ngũ Lão, Quận 1, Thành phố Hồ Chí Minh", "6 Trịnh Văn Cấn, Cầu Ông Lãnh, Quận 1, Thành phố Hồ Chí Minh", "764 Võ Văn Kiệt, phường 1, Thành phố Hồ Chí Minh", "Số 2-2 bis Trần Cao Vân, Phường Đakao, Quận 1","1B Đường Hoàng Hữu Nam, Long Thạnh Mỹ, Quận 9"};
-    private final String[] temperatures = {"15 KM", "14.5 KM", "20 KM", "6 KM", "2.7 KM"};
+    private final String[] temperatures = {"7.1 ♥", "8.4 ♥", "9.1 ♥", "4.7 ♥", "6.5 ♥"};
     private final String[] times = {"Thứ 2 - Thứ 7    7:30-16:30", "Thứ 2 - Chủ Nhật    Mở cửa cả ngày", "Thứ 2 - Thứ 6    7:30-22:00"};
 
     private final SliderAdapter sliderAdapter = new SliderAdapter(this ,pics, 20, new OnCardClickListener());

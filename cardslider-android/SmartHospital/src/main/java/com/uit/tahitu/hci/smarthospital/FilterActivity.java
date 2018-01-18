@@ -50,6 +50,9 @@ public class FilterActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.ln_7)
     LinearLayout ln7;
 
+    @BindView(R.id.ln_8)
+    LinearLayout ln8;
+
     @BindView(R.id.cb_1)
     CheckBox cb1;
 
@@ -70,6 +73,9 @@ public class FilterActivity extends AppCompatActivity implements View.OnClickLis
 
     @BindView(R.id.cb_7)
     CheckBox cb7;
+
+    @BindView(R.id.cb_8)
+    CheckBox cb8;
 
     @BindView(R.id.imv_add_quan)
     ImageView imageAddQuan;
@@ -149,7 +155,9 @@ public class FilterActivity extends AppCompatActivity implements View.OnClickLis
         ln4.setOnClickListener(this);
         ln5.setOnClickListener(this);
         ln6.setOnClickListener(this);
+        ln6.setOnClickListener(this);
         ln7.setOnClickListener(this);
+        ln8.setOnClickListener(this);
         imageAddKhoa.setOnClickListener(this);
         imageAddQuan.setOnClickListener(this);
     }
@@ -178,6 +186,9 @@ public class FilterActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.ln_7:
                 cb7.setChecked(!cb7.isChecked());
+                break;
+            case R.id.ln_8:
+                cb8.setChecked(!cb8.isChecked());
                 break;
             case R.id.imv_add_khoa:
                 Intent intent = new Intent(FilterActivity.this, ChoiceDepartmentActivity.class);

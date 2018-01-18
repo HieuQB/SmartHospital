@@ -87,6 +87,7 @@
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:elevation="@dimen/small_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,6 +116,7 @@
             </LinearLayout>
 
             <android.support.v4.widget.NestedScrollView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -334,6 +336,32 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:text="Top 10 Bệnh Viện được tìm nhiều nhất"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_30dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large"
+                    android:clickable="false" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/large_xi"
+                    android:layout_marginTop="@dimen/small_16dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="Bệnh viện mở cửa 24/24"
                     android:textColor="@color/black"
                     android:textSize="@dimen/default_text_size" />
             </LinearLayout>
