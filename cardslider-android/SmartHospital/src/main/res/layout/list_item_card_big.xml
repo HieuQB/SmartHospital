@@ -23,11 +23,11 @@
             android:paddingStart="10dp">
 
             <LinearLayout
-                android:paddingTop="10dp"
-                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -35,10 +35,10 @@
                     android:src="@drawable/distance" />
 
                 <TextView
-                    android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginStart="5dp"
                     android:text="284 Cống Quỳnh, Phạm Ngũ Lão, Quận 1, Hồ Chí Minh"
                     android:textColor="@color/black"
                     android:textSize="13dp" />
@@ -46,9 +46,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -57,6 +57,8 @@
                     android:src="@drawable/focus" />
 
                 <TextView
+                    android:padding="5dp"
+                    android:background="@drawable/bg_vuong"
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -70,10 +72,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -83,10 +85,10 @@
                     android:src="@drawable/category" />
 
                 <TextView
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
                     android:text="Bệnh viện Từ Dũ là một bệnh viện phụ sản ở thành phố Hồ Chí Minh, Việt Nam. Với gần một thế kỷ làm việc và phát triển, bệnh viện Từ Dũ là nơi ra đời của rất nhiều thế hệ em bé sinh ra ở tại thành phố Hồ Chí Minh. Bệnh viện Từ Dũ cũng là một trong bệnh viện hàng đầu ở Việt Nam trong vấn đề về hiếm muộn và thụ tinh nhân tạo.Hiện nay, Ths. Bs. Lê Quang Thanh là Giám đốc Bệnh viện Từ Dũ"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
@@ -94,10 +96,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -107,21 +109,25 @@
                     android:src="@drawable/building" />
 
                 <TextView
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:background="@drawable/bg_vuong"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Sức chứa : Khoảng 1000 m²"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Bệnh viện nhà nước"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -130,23 +136,23 @@
                     android:src="@drawable/link" />
 
                 <TextView
-                android:gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Website : "
-                android:textColor="@color/black"
-                android:textSize="13sp" />
-
-                <TextView
-                    android:textColorLink="@color/blue"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Website : "
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_vertical"
                     android:linksClickable="true"
                     android:text="http://tudu.com.vn/"
                     android:textColor="@color/black"
+                    android:textColorLink="@color/blue"
                     android:textSize="13sp" />
 
             </LinearLayout>
@@ -190,16 +196,16 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/call" />
+                        android:src="@drawable/if_Star_empty_383990" />
 
                     <TextView
+                        android:textSize="20dp"
                         android:id="@+id/tvLienHe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="LIÊN HỆ"
-                        android:textColor="@color/black"
+                        android:text=" 6.9"
+                        android:textColor="@color/red"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -232,19 +238,26 @@
             android:orientation="horizontal">
 
             <TextView
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:background="@drawable/bg_btn_blue_leaving"
                 android:id="@+id/tv_evaluate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="54 lượt đánh giá"
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
             <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:padding="5dp"-->
+                <!--android:background="@drawable/bg_vuong"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
                 <!--android:layout_height="wrap_content"-->
-                <!--android:text="4.8 ♥    Kém"-->
+                <!--android:text="Rating: 4.8 ♥"-->
                 <!--android:textColor="@color/red"-->
                 <!--android:textSize="15dp"-->
                 <!--android:textStyle="bold" />-->
